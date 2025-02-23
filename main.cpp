@@ -9,16 +9,24 @@ void calcResultGame(int userGuess, int compGuess, std::vector <std::string> vari
 
 int main()
 {
-    //кодировку на кириллицу переключаем
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-    //----------------------------------
     int userGuess(0), compGuess(0);
-    std::vector <std::string> variants {"Ножницы", "Камень", "Бумага"};
-    srand(time(0));
-    compGuess = randomizeGuess();
-    userGuess = enterUserGuess(variants);
-    calcResultGame(userGuess, compGuess, variants);
+    bool gameOver = false;
+    while (!gameOver)
+    {
+        std::vector <std::string> variants {"Scissors", "Rock", "Paper"};
+        srand(time(0));
+        compGuess = randomizeGuess();
+        userGuess = enterUserGuess(variants);
+        while (userGuess < 0 || userGuess >= variants.size())
+        {
+            std::cout << "Error! Please try again.";
+            userGuess = enterUserGuess(variants);
+        }
+        calcResultGame(userGuess, compGuess, variants);
+        std::cout << "Play again? (0: Yes): ";
+        std::cin >> gameOver;
+    }
+    return 0;
 }
 
 int randomizeGuess()
@@ -32,12 +40,12 @@ int randomizeGuess()
 int enterUserGuess(std::vector <std::string> variants)
 {
     int userGuess;
-    std::cout << "Варианты: \n";
-    for (int i = 0; i < size(variants); i++)
+    std::cout << "Options: \n";
+    for (int i = 0; i < variants.size(); i++)
     {
         std::cout << i + 1 << ": " << variants[i] << "\n";
     }
-    std::cout << "Введите свой выбор: ";
+    std::cout << "Enter your choice: ";
     std::cin >> userGuess;
     return userGuess - 1;
 }
@@ -46,17 +54,17 @@ void calcResultGame(int userGuess, int compGuess, std::vector <std::string> vari
 {
     if (userGuess == 0 && compGuess == 2 || userGuess == 1 && compGuess == 0 || userGuess == 2 && compGuess == 1)
     {
-        std::cout << "Ты выбрал: " << variants[userGuess] << "\t" << "Компьютер выбрал: " << variants[compGuess] << "\n";
-        std::cout << "Ты выйграл!";
+        std::cout << "You chose: " << variants[userGuess] << "\t" << "The computer chose: " << variants[compGuess] << "\n";
+        std::cout << "You won!\n";
     }
     else if (userGuess == 0 && compGuess == 0 || userGuess == 1 && compGuess == 1 || userGuess == 2 && compGuess == 2)
     {
-        std::cout << "Ты выбрал: " << variants[userGuess] << "\t" << "Компьютер выбрал: " << variants[compGuess] << "\n";
-        std::cout << "Ничья!";
+        std::cout << "You chose: " << variants[userGuess] << "\t" << "The computer chose: " << variants[compGuess] << "\n";
+        std::cout << "Draw!\n";
     }
     else
     {
-        std::cout << "Ты выбрал: " << variants[userGuess] << "\t" << "Компьютер выбрал: " << variants[compGuess] << "\n";
-        std::cout << "Ты проиграл!";
+        std::cout << "You chose: " << variants[userGuess] << "\t" << "The computer chose: " << variants[compGuess] << "\n";
+        std::cout << "You lost!\n";
     }
 }
