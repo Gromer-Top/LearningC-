@@ -1,3 +1,0 @@
-C:/Users/Azerty/Documents/LearningC-/build/CMakeFiles/Game.dir
-C:/Users/Azerty/Documents/LearningC-/build/CMakeFiles/edit_cache.dir
-C:/Users/Azerty/Documents/LearningC-/build/CMakeFiles/rebuild_cache.dir

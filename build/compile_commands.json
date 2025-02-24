@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/Azerty/Documents/LearningC-/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe   -g -o CMakeFiles\\Game.dir\\main.cpp.obj -c C:\\Users\\Azerty\\Documents\\LearningC-\\main.cpp",
-  "file": "C:/Users/Azerty/Documents/LearningC-/main.cpp",
-  "output": "CMakeFiles/Game.dir/main.cpp.obj"
-}
-]
