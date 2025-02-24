@@ -1,7 +1,5 @@
 #include <iostream>
-#include <cstdlib>
 #include <vector>
-#include <windows.h>
 
 int randomizeGuess();
 int enterUserGuess(std::vector <std::string> variants);
